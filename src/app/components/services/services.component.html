@@ -1,0 +1,38 @@
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Our Services</h2>
+      <a href="/services" class="view-all">
+        View All Services
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card" *ngFor="let service of services">
+        <div class="service-content">
+          <h3 class="service-title">{{ service.title }}</h3>
+          <p class="service-description" *ngIf="service.description">{{ service.description }}</p>
+          <ul class="service-items" *ngIf="service.sub_services && service.sub_services.length > 0">
+            <li *ngFor="let item of service.sub_services">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M13 4L6 11L3 8" stroke="#95785A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              {{ item }}
+            </li>
+          </ul>
+          <div class="service-footer">
+            <a [href]="service.link" class="service-btn">
+              View All
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

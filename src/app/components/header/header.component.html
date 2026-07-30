@@ -1,0 +1,54 @@
+<header class="header">
+  <div class="container">
+    <div class="header-content">
+      <div class="logo" routerLink="/home">
+        <img [src]="logo" [alt]="brandName">
+        <!-- <span class="brand-name">{{ brandName }}</span> -->
+      </div>
+
+      <nav class="nav" [class.active]="isMenuOpen">
+        <a routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link"
+          (click)="closeMenu()">Home</a>
+        <a routerLink="/services" routerLinkActive="active" class="nav-link" (click)="closeMenu()">Services</a>
+        <a routerLink="/about" routerLinkActive="active" class="nav-link" (click)="closeMenu()">About Us</a>
+        <a routerLink="/contact-us" routerLinkActive="active" class="nav-link" (click)="closeMenu()">Contact</a>
+      </nav>
+
+      <div class="header-right">
+
+        <a href="tel:{{ contact }}" class="phone">+7 (495) 123-45-67</a>
+        <button class="cta-btn" routerLink="/contact-us">Book Now</button>
+        <div class="social-icons">
+          <a [href]="social.insta" target="_blank" rel="noopener" *ngIf="social.insta" aria-label="Instagram"
+            class="social-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="2" />
+              <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2" />
+              <circle cx="18" cy="6" r="1.5" fill="currentColor" />
+            </svg>
+          </a>
+          <a [href]="social.fb" target="_blank" rel="noopener" *ngIf="social.fb" aria-label="Facebook"
+            class="social-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </a>
+          <a [href]="social.tikTok" target="_blank" rel="noopener" *ngIf="social.tikTok" aria-label="TikTok"
+            class="social-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <button class="menu-toggle" (click)="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>

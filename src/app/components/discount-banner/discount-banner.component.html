@@ -1,0 +1,44 @@
+<section class="discount-banner" *ngIf="bannerData.contact">
+  <div class="banner-text">
+    <h2 class="banner-title">Book Your Appointment Today</h2>
+    <p class="banner-description">
+      Experience premium beauty services at {{ bannerData.brandName }}.
+      Contact us to schedule your visit.
+    </p>
+    <div class="banner-benefits">
+      <div class="benefit-item">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+          <circle cx="16" cy="16" r="14" stroke="#95785A" stroke-width="2" />
+          <path d="M10 16L14 20L22 12" stroke="#95785A" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
+        <span>Easy Booking</span>
+      </div>
+      <div class="benefit-item">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+          <circle cx="16" cy="16" r="14" stroke="#95785A" stroke-width="2" />
+          <path d="M10 16L14 20L22 12" stroke="#95785A" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
+        <span>Flexible Hours</span>
+      </div>
+      <div class="benefit-item">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+          <circle cx="16" cy="16" r="14" stroke="#95785A" stroke-width="2" />
+          <path d="M10 16L14 20L22 12" stroke="#95785A" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
+        <span>Two Locations</span>
+      </div>
+    </div>
+    <a [href]="bannerData.social?.hrefPhone" class="banner-btn">
+      Call {{ bannerData.contact }}
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+        <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+  </div>
+  <div class="banner-image">
+    <img [src]="bannerImage" [alt]="bannerData.brandName || 'Book Appointment'">
+  </div>
+</section>

@@ -1,0 +1,76 @@
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-text">
+        <!-- Trust Badge -->
+        <div class="hero-badge">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M10 0L12.2451 6.90983L19.5106 7.72949L14.5451 12.3402L15.8779 19.5205L10 15.9L4.12215 19.5205L5.45492 12.3402L0.489435 7.72949L7.75486 6.90983L10 0Z" fill="#FFB800"/>
+          </svg>
+          <span>Rated 4.9/5 by 500+ Happy Clients</span>
+        </div>
+
+        <h1 class="hero-title">
+          Flawless Hair Removal Services at Merinaz!
+        </h1>
+        <p class="hero-subtitle" *ngIf="heroData.footerText">
+          {{ heroData.footerText }}
+        </p>
+
+        <!-- Quick Features -->
+        <div class="hero-features">
+          <div class="feature-item">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#95785A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Expert Team</span>
+          </div>
+          <div class="feature-item">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#95785A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Safe & Hygienic</span>
+          </div>
+          <div class="feature-item">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#95785A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Affordable Prices</span>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <a [href]="heroData.social?.hrefPhone" class="btn-primary">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M3 5C3 3.89543 3.89543 3 5 3H7.27924C7.70967 3 8.09181 3.27543 8.22792 3.68377L9.72574 8.17721C9.88311 8.64932 9.6939 9.16531 9.26407 9.3991L7.84843 10.1067C7.83456 10.1137 7.82098 10.1211 7.80768 10.1289C7.55506 10.2847 7.51071 10.605 7.69673 10.8257C8.42935 11.7111 9.2889 12.5706 10.1743 13.3033C10.395 13.4893 10.7153 13.4449 10.8711 13.1923C10.8789 13.179 10.8863 13.1654 10.8933 13.1516L11.6009 11.7359C11.8347 11.3061 12.3507 11.1169 12.8228 11.2743L17.3162 12.7721C17.7246 12.9082 18 13.2903 18 13.7208V16C18 17.1046 17.1046 18 16 18H15C8.37258 18 3 12.6274 3 6V5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Book Appointment
+          </a>
+          <button class="btn-secondary" (click)="scrollToSection('services')">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M10 3V17M10 17L16 11M10 17L4 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            View Services
+          </button>
+        </div>
+
+        <!-- Stats Badge -->
+        <div class="hero-stats">
+          <div class="stat-badge">
+            <strong>10+</strong> Years Experience
+          </div>
+          <div class="stat-badge">
+            <strong>10,000+</strong> Happy Clients
+          </div>
+          <div class="stat-badge">
+            <strong>2</strong> Convenient Locations
+          </div>
+        </div>
+      </div>
+      <div class="hero-image">
+        <div class="image-decorator"></div>
+        <img src="https://s3.ap-south-1.amazonaws.com/cdn.ghc.health/d5e96a40-37fa-4486-8103-b661c8a02c29_980514_afc900ff187c4dfd86a62ba686f285cf~mv2.avif" alt="Flawless Hair Removal Services at Merinaz!">
+      </div>
+    </div>
+  </div>
+</section>

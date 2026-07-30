@@ -1,0 +1,105 @@
+<section class="contact-page">
+  <div class="contact-shell">
+    <div class="contact-intro">
+      <span class="contact-kicker">Contact Us</span>
+      <h1>Let's Get Started</h1>
+      <p>Request an appointment and the {{ brandName }} team will follow up with availability.</p>
+    </div>
+
+    <div class="contact-layout">
+      <aside class="contact-panel">
+        <h2>Visit Merinaz</h2>
+        <div class="contact-detail" *ngIf="address">
+          <span class="detail-icon">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M16.67 8.33C16.67 13.33 10 17.5 10 17.5C10 17.5 3.33 13.33 3.33 8.33C3.33 4.65 6.32 1.67 10 1.67C13.68 1.67 16.67 4.65 16.67 8.33Z" stroke="currentColor" stroke-width="1.5"/>
+              <circle cx="10" cy="8.33" r="2.5" stroke="currentColor" stroke-width="1.5"/>
+            </svg>
+          </span>
+          <p>{{ address }}</p>
+        </div>
+        <div class="contact-detail" *ngIf="locationTwo">
+          <span class="detail-icon">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M16.67 8.33C16.67 13.33 10 17.5 10 17.5C10 17.5 3.33 13.33 3.33 8.33C3.33 4.65 6.32 1.67 10 1.67C13.68 1.67 16.67 4.65 16.67 8.33Z" stroke="currentColor" stroke-width="1.5"/>
+              <circle cx="10" cy="8.33" r="2.5" stroke="currentColor" stroke-width="1.5"/>
+            </svg>
+          </span>
+          <p>{{ locationTwo }}</p>
+        </div>
+        <a class="contact-detail" *ngIf="contact" [href]="'tel:' + contact">
+          <span class="detail-icon">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M18.33 14.17v2.5a1.67 1.67 0 01-1.82 1.67 16.5 16.5 0 01-7.19-2.56 16.26 16.26 0 01-5-5 16.5 16.5 0 01-2.57-7.23A1.67 1.67 0 013.42 1.67h2.5a1.67 1.67 0 011.67 1.43c.1.77.3 1.53.58 2.27a1.67 1.67 0 01-.38 1.76l-1.06 1.06a13.33 13.33 0 005 5l1.06-1.06a1.67 1.67 0 011.76-.37c.73.27 1.49.47 2.26.57a1.67 1.67 0 011.43 1.7z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <p>{{ contact }}</p>
+        </a>
+        <a class="contact-detail" *ngIf="email" [href]="'mailto:' + email">
+          <span class="detail-icon">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M3.33 3.33h13.34c.92 0 1.66.75 1.66 1.67v10c0 .92-.74 1.67-1.66 1.67H3.33c-.92 0-1.66-.75-1.66-1.67V5c0-.92.74-1.67 1.66-1.67z" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M18.33 5L10 10.83L1.67 5" stroke="currentColor" stroke-width="1.5"/>
+            </svg>
+          </span>
+          <p>{{ email }}</p>
+        </a>
+      </aside>
+
+      <form class="contact-form" [formGroup]="merinazDetails" (ngSubmit)="submitmirnazForm()">
+        <div class="form-row full">
+          <label for="full_name">Full Name*</label>
+          <input id="full_name" type="text" formControlName="full_name" placeholder="Name">
+          <span class="field-error" *ngIf="isInvalid('full_name')">Full name is required.</span>
+        </div>
+
+        <div class="form-grid">
+          <div class="form-row">
+            <label for="email">Email Address*</label>
+            <input id="email" type="email" formControlName="email" placeholder="Email">
+            <span class="field-error" *ngIf="isInvalid('email')">Valid email is required.</span>
+          </div>
+          <div class="form-row">
+            <label for="phone_number">Phone Number*</label>
+            <input id="phone_number" type="tel" formControlName="phone_number" placeholder="Phone Number">
+            <span class="field-error" *ngIf="isInvalid('phone_number')">Phone number is required.</span>
+          </div>
+          <div class="form-row">
+            <label for="requested_date">Requested Date*</label>
+            <input id="requested_date" type="date" formControlName="requested_date">
+            <span class="field-error" *ngIf="isInvalid('requested_date')">Date is required.</span>
+          </div>
+          <div class="form-row">
+            <label for="event_time">Requested Time*</label>
+            <input id="event_time" type="time" formControlName="event_time" (input)="updateConvertedTime()">
+            <span class="converted-time">Converted Time (AM/PM): {{ convertedTime }}</span>
+            <span class="field-error" *ngIf="isInvalid('event_time')">Time is required.</span>
+          </div>
+        </div>
+
+        <div class="form-row full">
+          <label for="service_type">Service Type*</label>
+          <select id="service_type" formControlName="service_type">
+            <option value="" disabled>Select a service</option>
+            <option *ngFor="let serviceType of serviceTypes" [value]="serviceType">{{ serviceType }}</option>
+          </select>
+          <span class="field-error" *ngIf="isInvalid('service_type')">Service type is required.</span>
+        </div>
+
+        <div class="form-row full">
+          <label for="comments">Comments/Questions</label>
+          <textarea id="comments" formControlName="comments" rows="6" placeholder="Please provide any additional comments or questions you may have."></textarea>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" [disabled]="submitting">
+            {{ submitting ? 'Submitting...' : 'Submit' }}
+          </button>
+        </div>
+
+        <p class="form-message success" *ngIf="success">Thank you. Your request has been sent.</p>
+        <p class="form-message error" *ngIf="error">Something went wrong. Please try again or call us directly.</p>
+      </form>
+    </div>
+  </div>
+</section>

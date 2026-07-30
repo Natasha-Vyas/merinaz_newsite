@@ -1,0 +1,129 @@
+<div class="main">
+  <app-hero></app-hero>
+  <app-about></app-about>
+
+  <!-- Eyelash Extensions Section -->
+  <section class="feature-section eyelash-section reveal">
+    <div class="feature-text">
+      <h2 class="section-title">Eyelash Extensions</h2>
+      <p class="feature-description">
+        Enhance your natural beauty with our professional eyelash extension services. We offer a complete range of
+        lash services to give you the perfect look.
+      </p>
+      <div class="feature-benefits">
+        <div class="benefit-item">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+            <circle cx="16" cy="16" r="14" stroke="#95785A" stroke-width="2" />
+            <path d="M10 16L14 20L22 12" stroke="#95785A" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+          <span>Long-lasting</span>
+        </div>
+        <div class="benefit-item">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+            <circle cx="16" cy="16" r="14" stroke="#95785A" stroke-width="2" />
+            <path d="M10 16L14 20L22 12" stroke="#95785A" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+          <span>Natural Look</span>
+        </div>
+        <div class="benefit-item">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+            <circle cx="16" cy="16" r="14" stroke="#95785A" stroke-width="2" />
+            <path d="M10 16L14 20L22 12" stroke="#95785A" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+          <span>No Daily Mascara</span>
+        </div>
+      </div>
+      <ul class="services-list" *ngIf="eyelashServices.length > 0">
+        <li *ngFor="let service of eyelashServices">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M20 6L9 17L4 12" stroke="#95785A" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+          {{ service }}
+        </li>
+      </ul>
+      <a [href]="contactLink" class="cta-button">Book Now</a>
+    </div>
+    <div class="feature-image">
+      <img
+        src="https://s3.ap-south-1.amazonaws.com/cdn.ghc.health/13bedd32-c16f-445a-a14b-e1eb8cf98250_Eyelash%20extension%20.jpg"
+        alt="Eyelash Extensions">
+      <div class="image-overlay">
+        <div class="overlay-badge">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none">
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="12" cy="12" r="3" stroke="#fff" stroke-width="2"/>
+          </svg>
+          <span>Professional Lash Care</span>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <app-services></app-services>
+
+  <!-- Sugaring Section -->
+  <section class="feature-section sugaring-section reveal reverse">
+    <div class="feature-text">
+      <h2 class="section-title">Sugaring Hair Removal</h2>
+      <p class="feature-description">
+        Experience the ancient art of sugaring - a 100% natural hair removal method using sugar, water, and lemon
+        juice. Gentle on your skin, effective on unwanted hair.
+      </p>
+      <p class="feature-description">
+        Sugaring paste is applied at body temperature and will not burn your skin. Less pain and minimized risk of
+        ingrown hairs make this the perfect choice for sensitive skin.
+      </p>
+      <div class="feature-benefits">
+        <div class="benefit-item">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+            <circle cx="16" cy="16" r="14" stroke="#95785A" stroke-width="2" />
+            <path d="M10 16L14 20L22 12" stroke="#95785A" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+          <span>100% Natural</span>
+        </div>
+        <div class="benefit-item">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+            <circle cx="16" cy="16" r="14" stroke="#95785A" stroke-width="2" />
+            <path d="M10 16L14 20L22 12" stroke="#95785A" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+          <span>Less Painful</span>
+        </div>
+        <div class="benefit-item">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+            <circle cx="16" cy="16" r="14" stroke="#95785A" stroke-width="2" />
+            <path d="M10 16L14 20L22 12" stroke="#95785A" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+          <span>Lasts Up to 6 Weeks</span>
+        </div>
+      </div>
+      <a [href]="contactLink" class="cta-button">Book Now</a>
+    </div>
+    <div class="feature-image">
+      <img
+        src="https://s3.ap-south-1.amazonaws.com/cdn.ghc.health/0485f411-28f8-4db4-b5d7-2b82352014b3_Sugarin%20waxing.jpg"
+        alt="Sugaring Hair Removal">
+      <div class="image-overlay">
+        <div class="overlay-badge">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" stroke="#fff" stroke-width="2" fill="rgba(255,255,255,0.3)"/>
+          </svg>
+          <span>100% Natural Sugaring</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <app-testimonials></app-testimonials>
+
+
+  <app-discount-banner></app-discount-banner>
+  <app-locations></app-locations>
+</div>

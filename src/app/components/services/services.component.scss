@@ -1,0 +1,221 @@
+.services {
+  position: relative;
+  padding: 5rem 10rem;
+  background: #95785A;
+
+  @media (max-width: 1200px) {
+    padding: 4rem 6rem;
+  }
+
+  @media (max-width: 968px) {
+    padding: 4rem 4rem;
+  }
+
+  @media (max-width: 768px) {
+    padding: 3rem 2rem;
+  }
+
+  @media (max-width: 480px) {
+    padding: 2rem 1.5rem;
+  }
+}
+
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+
+  @media (max-width: 640px) {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 1px;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
+}
+
+.view-all {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+
+  &:hover {
+    gap: 0.75rem;
+    color: rgba(255, 255, 255, 0.85);
+  }
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.service-card {
+  background: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  cursor: pointer;
+  border: 1px solid rgba(149, 120, 90, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #95785A 0%, #b8966e 100%);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s ease;
+  }
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(149, 120, 90, 0.15);
+    border-color: rgba(149, 120, 90, 0.2);
+
+    &::before {
+      transform: scaleX(1);
+    }
+
+    .service-title {
+      color: #7a5f47;
+    }
+  }
+}
+
+.service-content {
+  padding: 2.5rem 2rem;
+  min-height: 380px;
+  display: flex;
+  flex-direction: column;
+}
+
+.service-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #8a6d51;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+  transition: color 0.3s ease;
+}
+
+.service-description {
+  font-size: 0.9375rem;
+  color: #374151;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+  padding: 0.75rem 1rem;
+  background: rgba(149, 120, 90, 0.05);
+  border-radius: 8px;
+  text-align: center;
+}
+
+.service-items {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem 0;
+  flex-grow: 1;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    font-size: 0.9375rem;
+    color: #1f2937;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(149, 120, 90, 0.08);
+    transition: all 0.3s ease;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    svg {
+      flex-shrink: 0;
+      transition: transform 0.3s ease;
+    }
+
+    &:hover {
+      color: #95785A;
+      padding-left: 0.5rem;
+
+      svg {
+        transform: scale(1.2);
+      }
+    }
+  }
+}
+
+.service-footer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: auto;
+}
+
+.service-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  border-radius: 50px;
+  border: none;
+  background: linear-gradient(135deg, #95785A 0%, #7a5f47 100%);
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  text-decoration: none;
+  box-shadow: 0 8px 20px rgba(149, 120, 90, 0.25);
+  width: 100%;
+
+  svg {
+    transition: transform 0.3s ease;
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(149, 120, 90, 0.35);
+
+    svg {
+      transform: translateX(5px);
+    }
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}

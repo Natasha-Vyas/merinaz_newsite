@@ -1,0 +1,79 @@
+<section class="locations">
+  <div class="locations-header">
+    <div class="header-badge">Find Us</div>
+    <h2 class="section-title">Our Locations</h2>
+    <p class="section-subtitle">Visit us at either of our convenient locations in Washington DC</p>
+  </div>
+
+  <div class="locations-grid" *ngIf="locations.length > 0">
+    <div class="location-card" *ngFor="let location of locations; let i = index">
+      <div class="card-header">
+        <div class="map-container">
+          <iframe
+            [src]="getMapUrl(i) | sanitizeUrl"
+            class="location-map"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+          <div class="map-overlay">
+            <div class="location-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="#fff" stroke-width="2" fill="#95785A"/>
+                <circle cx="12" cy="9" r="2.5" fill="#fff"/>
+              </svg>
+            </div>
+            <div class="location-badge">Location {{ i + 1 }}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-body">
+        <div class="address-container">
+          <svg class="address-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="#95785A" stroke-width="2"/>
+            <circle cx="12" cy="9" r="2" stroke="#95785A" stroke-width="2"/>
+          </svg>
+          <p class="location-address">{{ location.location }}</p>
+        </div>
+
+        <div class="card-divider"></div>
+
+        <div class="action-buttons">
+          <a [href]="location.link" target="_blank" class="book-btn primary">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/>
+              <path d="M16 2v4M8 2v4M3 10h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            Book Now
+          </a>
+          <a href="tel:2024692869" class="book-btn secondary">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M3 5C3 3.89543 3.89543 3 5 3H7.27924C7.70967 3 8.09181 3.27543 8.22792 3.68377L9.72574 8.17721C9.88311 8.64932 9.6939 9.16531 9.26407 9.3991L7.84843 10.1067C8.42935 11.7111 9.2889 12.5706 10.8933 13.1516L11.6009 11.7359C11.8347 11.3061 12.3507 11.1169 12.8228 11.2743L17.3162 12.7721C17.7246 12.9082 18 13.2903 18 13.7208V16C18 17.1046 17.1046 18 16 18H15C8.37258 18 3 12.6274 3 6V5Z" stroke="currentColor" stroke-width="2"/>
+            </svg>
+            Call Us
+          </a>
+        </div>
+
+        <a [href]="getDirectionsUrl(i)" target="_blank" class="directions-link">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="currentColor" stroke-width="2"/>
+            <circle cx="12" cy="9" r="2" stroke="currentColor" stroke-width="2"/>
+          </svg>
+          Get Directions on Google Maps
+        </a>
+
+        <button [routerLink]="['/location', i + 1]" class="location-details-btn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/>
+            <path d="M9 3v18M15 8v10M3 9h18M3 15h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          View Location Details
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

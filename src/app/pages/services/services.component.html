@@ -1,0 +1,142 @@
+<!-- Services Hero Section -->
+<section class="services-hero">
+  <div class="container">
+    <div class="services-hero-content">
+      <div class="hero-badge">Premium Care</div>
+      <h1 class="page-title">Our Services</h1>
+      <p class="page-subtitle">Expert hair removal & beauty care crafted for sensitive skin</p>
+    </div>
+  </div>
+</section>
+
+<!-- Service Description -->
+<section class="service-description">
+  <div class="container">
+    <div class="description-wrapper" [@fadeSlide]="selectedCategory">
+      <div class="description-header">
+        <div class="category-badge">{{ categoryTitle }}</div>
+        <h2 class="description-title">Why Choose Our Services?</h2>
+      </div>
+
+      <p class="description-text">
+        {{ categoryDescription }}
+      </p>
+
+      <div class="benefits-grid">
+        <div class="benefit-card" *ngFor="let benefit of categoryBenefits; let i = index">
+          <div class="benefit-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="10" stroke="#95785A" stroke-width="2"/>
+              <path d="M8 12L11 15L16 9" stroke="#95785A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <span class="benefit-text">{{ benefit }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Services Content with Sidebar -->
+<section class="services-content">
+  <div class="container">
+    <div class="services-layout">
+
+      <!-- Left Sidebar Filter -->
+      <aside class="services-sidebar">
+        <h3 class="sidebar-title">Categories</h3>
+
+        <div class="results-counter" *ngIf="selectedCategory !== 'all'">
+          <span class="counter-number">{{ filteredServices.length }}</span>
+          <span class="counter-text">{{ filteredServices.length === 1 ? 'Service' : 'Services' }} Found</span>
+        </div>
+
+        <div class="filter-list">
+          <button
+            *ngFor="let category of serviceCategories"
+            class="filter-item"
+            [class.active]="selectedCategory === category.value"
+            (click)="filterServices(category.value)">
+            {{ category.name }}
+          </button>
+        </div>
+      </aside>
+
+      <!-- Right Content Area -->
+      <div class="services-main" [@fadeSlide]="selectedCategory">
+
+        <!-- No Results Message -->
+        <div class="no-results" *ngIf="filteredServices.length === 0">
+          <div class="no-results-icon">
+            <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+              <circle cx="40" cy="40" r="35" stroke="#95785A" stroke-width="2" opacity="0.3"/>
+              <path d="M40 25V40M40 50V52" stroke="#95785A" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="no-results-title">No Services Found</h3>
+          <p class="no-results-text">Try selecting a different category to see available services.</p>
+        </div>
+
+        <div class="service-category" *ngFor="let service of filteredServices">
+          <h2 class="category-title">{{ service.name }}</h2>
+
+          <div class="services-cards">
+            <div class="service-card" *ngFor="let subService of service.sub_services; let i = index">
+              <div class="service-card-content">
+                <h3 class="service-name">{{ subService }}</h3>
+
+                <div class="pricing" *ngIf="getPrice(subService)">
+                  <div class="price-item" *ngIf="getPrice(subService).standard">
+                    <span class="price-label">Standard:</span>
+                    <span class="price-value">${{ getPrice(subService).standard }}</span>
+                  </div>
+                  <div class="price-item" *ngIf="getPrice(subService).pack">
+                    <span class="price-label">3-Pack:</span>
+                    <span class="price-value">${{ getPrice(subService).pack }}</span>
+                  </div>
+                </div>
+
+                <div class="book-section">
+                  <button class="book-btn" (click)="toggleLocationDropdown(service.name + '-' + i, $event)">
+                    Book Now
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                      <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+
+                  <div class="location-dropdown" *ngIf="showLocationDropdown[service.name + '-' + i]" @slideDown>
+                    <div class="dropdown-header">Choose Location:</div>
+                    <button
+                      class="location-option"
+                      *ngFor="let location of calendlyLinks"
+                      (click)="bookService(location.link)">
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M14 6.67C14 11.33 8 15.33 8 15.33C8 15.33 2 11.33 2 6.67C2 3.35 4.69 0.67 8 0.67C11.31 0.67 14 3.35 14 6.67Z" stroke="#95785A" stroke-width="1.5"/>
+                        <circle cx="8" cy="6.67" r="2" stroke="#95785A" stroke-width="1.5"/>
+                      </svg>
+                      {{ location.location }}
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="services-cta">
+  <div class="container">
+    <div class="cta-content">
+      <h2 class="cta-title">Ready to Book Your Service?</h2>
+      <p class="cta-text">
+        Choose from our wide range of professional beauty services
+      </p>
+      <button class="cta-button" routerLink="/contact-us">Book Appointment Now</button>
+    </div>
+  </div>
+</section>

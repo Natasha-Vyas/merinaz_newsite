@@ -1,0 +1,46 @@
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-content">
+      <div class="about-image">
+        <img src="https://s3.ap-south-1.amazonaws.com/cdn.ghc.health/3769eb58-5c23-4250-8b2e-a50866c5cff1_4.jpg" alt="Who We Are">
+      </div>
+
+      <div class="about-text">
+        <h2 class="section-title">Who We Are</h2>
+        <p class="about-description" *ngIf="aboutData.hero && aboutData.hero.about">
+          {{ aboutData.hero.about[0] }}
+        </p>
+        <p class="about-description" *ngIf="aboutData.hero && aboutData.hero.about && aboutData.hero.about.length > 1">
+          {{ aboutData.hero.about[1] }}
+        </p>
+
+        <div class="about-benefits">
+          <div class="benefit-item">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+              <circle cx="16" cy="16" r="14" stroke="#95785A" stroke-width="2" />
+              <path d="M10 16L14 20L22 12" stroke="#95785A" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+            <span>Expert Team</span>
+          </div>
+          <div class="benefit-item">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+              <circle cx="16" cy="16" r="14" stroke="#95785A" stroke-width="2" />
+              <path d="M10 16L14 20L22 12" stroke="#95785A" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+            <span>Quality Services</span>
+          </div>
+          <div class="benefit-item">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+              <circle cx="16" cy="16" r="14" stroke="#95785A" stroke-width="2" />
+              <path d="M10 16L14 20L22 12" stroke="#95785A" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+            <span>Customer Satisfaction</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

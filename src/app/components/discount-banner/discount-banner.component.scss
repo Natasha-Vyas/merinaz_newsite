@@ -1,0 +1,172 @@
+.discount-banner {
+  position: relative;
+  overflow: hidden;
+  padding: 5rem 10rem;
+  display: flex;
+  gap: 50px;
+  align-items: center;
+
+  @media (max-width: 1200px) {
+    padding: 4rem 6rem;
+  }
+
+  @media (max-width: 968px) {
+    padding: 4rem 4rem;
+    flex-direction: column;
+  }
+
+  @media (max-width: 768px) {
+    padding: 3rem 2rem;
+  }
+
+  @media (max-width: 480px) {
+    padding: 2rem 1.5rem;
+  }
+}
+
+.banner-text {
+  width: 50%;
+
+  @media (max-width: 968px) {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.banner-title {
+  font-size: 3rem;
+  font-weight: 400;
+  color: #95785A;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+  letter-spacing: 1px;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
+}
+
+.banner-description {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: #000;
+  margin-bottom: 2rem;
+  opacity: 0.8;
+}
+
+.banner-benefits {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .benefit-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.75rem;
+    padding: 1.25rem;
+    background: rgba(149, 120, 90, 0.05);
+    border-radius: 15px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover {
+      background: rgba(149, 120, 90, 0.1);
+      transform: translateY(-5px);
+
+      svg {
+        transform: scale(1.1) rotate(5deg);
+      }
+    }
+
+    svg {
+      transition: transform 0.4s ease;
+    }
+
+    span {
+      font-weight: 600;
+      color: #95785A;
+      font-size: 0.9375rem;
+    }
+  }
+}
+
+.banner-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background-color: #95785A;
+  color: #fff;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 10px 30px rgba(149, 120, 90, 0.3);
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(149, 120, 90, 0.4);
+    gap: 1rem;
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.banner-image {
+  width: 50%;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  position: relative;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(149, 120, 90, 0.15) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+
+  &:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.25);
+
+    &::after {
+      opacity: 1;
+    }
+
+    img {
+      transform: scale(1.08);
+    }
+  }
+
+  @media (max-width: 968px) {
+    width: 100%;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
