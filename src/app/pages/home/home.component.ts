@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, HostListener } from '@angular/core';
 import { DataService } from '../../services/data.service';
 
 @Component({
@@ -9,7 +9,8 @@ import { DataService } from '../../services/data.service';
 export class HomeComponent implements OnInit, AfterViewInit {
 
   eyelashServices: string[] = [];
-  contactLink: string = '';
+  calendlyLinks: any[] = [];
+  activeBookDropdown: string = '';
 
   constructor(private dataService: DataService) { }
 
@@ -22,9 +23,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
             this.eyelashServices = eyelashService.sub_services;
           }
         }
-        if (data.social && data.social.hrefPhone) {
-          this.contactLink = data.social.hrefPhone;
-        }
+        this.calendlyLinks = data.hero?.calendlyLinks || [];
       }
     });
   }
@@ -50,6 +49,24 @@ export class HomeComponent implements OnInit, AfterViewInit {
       section.classList.add('reveal');
       observer.observe(section);
     });
+  }
+
+  toggleBookDropdown(dropdownId: string, event?: Event): void {
+    event?.stopPropagation();
+    this.activeBookDropdown = this.activeBookDropdown === dropdownId ? '' : dropdownId;
+  }
+
+  bookLocation(calendlyLink: string): void {
+    window.open(calendlyLink, '_blank');
+    this.activeBookDropdown = '';
+  }
+
+  @HostListener('document:click', ['$event'])
+  closeBookDropdownOnOutsideClick(event: Event): void {
+    const target = event.target as HTMLElement;
+    if (!target.closest('.book-dropdown')) {
+      this.activeBookDropdown = '';
+    }
   }
 
 }

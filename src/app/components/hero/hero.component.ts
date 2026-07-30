@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { DataService } from '../../services/data.service';
 
 @Component({
@@ -11,6 +11,8 @@ export class HeroComponent implements OnInit {
   sliderImages: any[] = [];
   heroData: any = {};
   galleryImages: any[] = [];
+  calendlyLinks: any[] = [];
+  showBookDropdown: boolean = false;
 
   constructor(private dataService: DataService) { }
 
@@ -23,6 +25,7 @@ export class HeroComponent implements OnInit {
         } else if (data.gallery && data.gallery.length > 0) {
           this.galleryImages = data.gallery;
         }
+        this.calendlyLinks = data.hero?.calendlyLinks || [];
       }
     });
   }
@@ -31,6 +34,24 @@ export class HeroComponent implements OnInit {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  toggleBookDropdown(event?: Event): void {
+    event?.stopPropagation();
+    this.showBookDropdown = !this.showBookDropdown;
+  }
+
+  bookLocation(calendlyLink: string): void {
+    window.open(calendlyLink, '_blank');
+    this.showBookDropdown = false;
+  }
+
+  @HostListener('document:click', ['$event'])
+  closeBookDropdownOnOutsideClick(event: Event): void {
+    const target = event.target as HTMLElement;
+    if (!target.closest('.book-dropdown')) {
+      this.showBookDropdown = false;
     }
   }
 }
