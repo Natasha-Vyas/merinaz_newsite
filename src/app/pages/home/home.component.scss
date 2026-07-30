@@ -1,6 +1,7 @@
 :host {
   display: block;
   width: 100%;
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><circle cx="16" cy="16" r="15" fill="%2395785A" opacity="0.2"/><circle cx="16" cy="16" r="8" fill="%2395785A"/><circle cx="16" cy="16" r="3" fill="white"/></svg>') 16 16, auto;
 }
 
 .main {
@@ -14,22 +15,62 @@
   // Alternating background pattern for visual rhythm
   app-hero {
     background: linear-gradient(135deg, #F4EDE1 0%, #f8f3ec 100%);
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 150px;
+      height: 150px;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="%2395785A" stroke-width="0.5" opacity="0.15"/><circle cx="50" cy="50" r="30" fill="none" stroke="%2395785A" stroke-width="0.5" opacity="0.15"/><circle cx="50" cy="50" r="20" fill="none" stroke="%2395785A" stroke-width="0.5" opacity="0.15"/></svg>');
+      opacity: 0.3;
+      animation: float 15s ease-in-out infinite;
+    }
   }
 
   app-about {
     background: #ffffff;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 30px;
+      right: 30px;
+      width: 200px;
+      height: 200px;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50,10 L60,40 L90,50 L60,60 L50,90 L40,60 L10,50 L40,40 Z" fill="%2395785A" opacity="0.08"/></svg>');
+      opacity: 0.4;
+      animation: rotate 25s linear infinite;
+    }
   }
 
   .eyelash-section {
-    // background: linear-gradient(135deg, #faf9f7 0%, #F4EDE1 100%);
+    position: relative;
   }
 
   app-services {
     background: #ffffff;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 5%;
+      width: 120px;
+      height: 120px;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M20,50 Q30,20 50,20 T80,50 Q70,80 50,80 T20,50" fill="none" stroke="%2395785A" stroke-width="1" opacity="0.1"/></svg>');
+      opacity: 0.5;
+      animation: float 18s ease-in-out infinite;
+    }
   }
 
   .sugaring-section {
     background: linear-gradient(135deg, #F4EDE1 0%, #f8f3ec 100%);
+    position: relative;
   }
 
   app-discount-banner {
@@ -82,6 +123,17 @@
     background: radial-gradient(circle at center, rgba(149, 120, 90, 0.02) 0%, transparent 70%);
     pointer-events: none;
   }
+
+  // Decorative vector elements
+  &::after {
+    content: '';
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    opacity: 0.03;
+    pointer-events: none;
+    z-index: 0;
+  }
 }
 
 
@@ -92,6 +144,7 @@
   box-shadow: 0 25px 70px rgba(149, 120, 90, 0.25);
   position: relative;
   transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><circle cx="16" cy="16" r="15" fill="white" opacity="0.9"/><circle cx="16" cy="16" r="10" fill="%2395785A"/><path d="M16 12v8M12 16h8" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>') 16 16, zoom-in;
 
   @media (max-width: 968px) {
     width: 100%;
@@ -159,20 +212,42 @@
 }
 
 // Eyelash section - Asymmetric rounded corners with morph
-.eyelash-section .feature-image {
-  border-radius: 60px 20px 60px 20px;
+.eyelash-section {
+  &::after {
+    top: -100px;
+    right: -100px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><path d="M100,20 Q120,40 140,60 T180,100 Q160,120 140,140 T100,180 Q80,160 60,140 T20,100 Q40,80 60,60 T100,20" fill="%2395785A" opacity="0.5"/><circle cx="100" cy="60" r="8" fill="%2395785A"/><circle cx="140" cy="100" r="8" fill="%2395785A"/><circle cx="100" cy="140" r="8" fill="%2395785A"/><circle cx="60" cy="100" r="8" fill="%2395785A"/></svg>');
+    background-size: contain;
+    background-repeat: no-repeat;
+    animation: float 20s ease-in-out infinite;
+  }
 
-  &:hover {
-    border-radius: 20px 60px 20px 60px;
+  .feature-image {
+    border-radius: 60px 20px 60px 20px;
+
+    &:hover {
+      border-radius: 20px 60px 20px 60px;
+    }
   }
 }
 
 // Sugaring section - Organic blob shape with morph
-.sugaring-section .feature-image {
-  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+.sugaring-section {
+  &::after {
+    bottom: -100px;
+    left: -100px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><path d="M100,10 L120,70 L180,90 L130,120 L140,180 L100,150 L60,180 L70,120 L20,90 L80,70 Z" fill="%2395785A" opacity="0.5"/><circle cx="100" cy="100" r="30" fill="none" stroke="%2395785A" stroke-width="4" opacity="0.3"/></svg>');
+    background-size: contain;
+    background-repeat: no-repeat;
+    animation: rotate 30s linear infinite;
+  }
 
-  &:hover {
-    border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%;
+  .feature-image {
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+
+    &:hover {
+      border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%;
+    }
   }
 }
 
@@ -307,6 +382,7 @@
   box-shadow: 0 10px 30px rgba(149, 120, 90, 0.3);
   position: relative;
   overflow: hidden;
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><circle cx="16" cy="16" r="15" fill="%2395785A"/><path d="M12 16h8M16 12v8" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>') 16 16, pointer;
 
   &::before {
     content: '';
@@ -345,5 +421,29 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+  50% {
+    transform: translateY(0) rotate(0deg);
+  }
+  75% {
+    transform: translateY(20px) rotate(-5deg);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
