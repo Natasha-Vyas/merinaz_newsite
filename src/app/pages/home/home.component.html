@@ -45,7 +45,14 @@
           {{ service }}
         </li>
       </ul>
-      <a [href]="contactLink" class="cta-button">Book Now</a>
+      <div class="book-dropdown">
+        <button type="button" class="cta-button" (click)="toggleBookDropdown('eyelash', $event)">Book Now</button>
+        <div class="book-menu" *ngIf="activeBookDropdown === 'eyelash'">
+          <button type="button" *ngFor="let location of calendlyLinks" (click)="bookLocation(location.link)">
+            {{ location.location }}
+          </button>
+        </div>
+      </div>
     </div>
     <div class="feature-image">
       <img
@@ -104,7 +111,14 @@
           <span>Lasts Up to 6 Weeks</span>
         </div>
       </div>
-      <a [href]="contactLink" class="cta-button">Book Now</a>
+      <div class="book-dropdown">
+        <button type="button" class="cta-button" (click)="toggleBookDropdown('sugaring', $event)">Book Now</button>
+        <div class="book-menu" *ngIf="activeBookDropdown === 'sugaring'">
+          <button type="button" *ngFor="let location of calendlyLinks" (click)="bookLocation(location.link)">
+            {{ location.location }}
+          </button>
+        </div>
+      </div>
     </div>
     <div class="feature-image">
       <img

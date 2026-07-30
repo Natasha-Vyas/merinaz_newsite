@@ -375,6 +375,11 @@
 
         @media (max-width: 968px) {
           position: static;
+          width: 100%;
+          padding: 1.5rem;
+          background: transparent;
+          border: none;
+          box-shadow: none;
         }
 
         .sidebar-title {
@@ -396,6 +401,10 @@
             height: 2px;
             background: #95785A;
           }
+
+          @media (max-width: 968px) {
+            display: none;
+          }
         }
 
         .results-counter {
@@ -408,6 +417,10 @@
           gap: 0.75rem;
           box-shadow: 0 4px 15px rgba(149, 120, 90, 0.3);
           animation: slideInLeft 0.5s ease-out;
+
+          @media (max-width: 968px) {
+            display: none;
+          }
 
           .counter-number {
             font-size: 2rem;
@@ -430,6 +443,31 @@
           flex-direction: column;
           gap: 0.75rem;
 
+          @media (max-width: 968px) {
+            flex-direction: row;
+            overflow-x: auto;
+            overflow-y: hidden;
+            gap: 1rem;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+
+            &::-webkit-scrollbar {
+              height: 4px;
+            }
+
+            &::-webkit-scrollbar-track {
+              background: rgba(149, 120, 90, 0.1);
+              border-radius: 10px;
+            }
+
+            &::-webkit-scrollbar-thumb {
+              background: #95785A;
+              border-radius: 10px;
+            }
+          }
+
           .filter-item {
             width: 100%;
             text-align: left;
@@ -445,6 +483,16 @@
             position: relative;
             overflow: hidden;
             letter-spacing: 0.3px;
+
+            @media (max-width: 968px) {
+              flex-shrink: 0;
+              width: auto;
+              min-width: fit-content;
+              padding: 0.95rem 1.75rem;
+              font-size: 0.95rem;
+              white-space: nowrap;
+              border-radius: 50px;
+            }
 
             &::before {
               content: '';
@@ -1066,5 +1114,174 @@
   50% {
     transform: scale(1.05);
     opacity: 0.8;
+  }
+}
+
+@media (max-width: 768px) {
+  .service-description {
+    overflow-x: hidden;
+
+    .container {
+      .description-wrapper {
+        .benefits-grid {
+          display: flex;
+          grid-template-columns: none;
+          gap: 1rem;
+          width: 100%;
+          max-width: none;
+          overflow-x: auto;
+          overflow-y: hidden;
+          padding-bottom: 0.9rem;
+          scroll-snap-type: x proximity;
+          -webkit-overflow-scrolling: touch;
+
+          .benefit-card {
+            flex: 0 0 78%;
+            scroll-snap-align: start;
+          }
+        }
+      }
+    }
+  }
+
+  .services-content {
+    overflow-x: hidden;
+
+    .container {
+      .services-layout {
+        min-width: 0;
+
+        .services-sidebar {
+          width: 100%;
+          max-width: 100%;
+          padding: 0;
+          overflow: visible;
+
+          .filter-list {
+            display: flex;
+            flex-direction: row;
+            gap: 0.85rem;
+            width: 100%;
+            overflow-x: auto;
+            overflow-y: hidden;
+            padding: 0 0 0.9rem;
+            margin: 0 0 1.25rem;
+            scroll-snap-type: x proximity;
+            -webkit-overflow-scrolling: touch;
+
+            .filter-item {
+              flex: 0 0 auto;
+              width: auto;
+              min-width: max-content;
+              transform: none;
+              scroll-snap-align: start;
+              white-space: nowrap;
+
+              &:hover,
+              &.active {
+                transform: none;
+              }
+            }
+          }
+        }
+
+        .services-main {
+          min-width: 0;
+
+          .service-category {
+            .services-cards {
+              display: flex;
+              grid-template-columns: none;
+              gap: 1rem;
+              overflow-x: auto;
+              overflow-y: hidden;
+              padding-bottom: 1rem;
+              scroll-snap-type: x proximity;
+              -webkit-overflow-scrolling: touch;
+
+              .service-card {
+                flex: 0 0 86%;
+                scroll-snap-align: start;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 968px) {
+  .services-content {
+    .container {
+      .services-layout {
+        .services-sidebar {
+          display: block;
+          width: 100%;
+          max-width: 100%;
+          min-width: 0;
+          padding: 0;
+
+          .filter-list {
+            display: flex !important;
+            flex-direction: row !important;
+            flex-wrap: nowrap !important;
+            gap: 0.9rem;
+            width: 100%;
+            max-width: 100%;
+            overflow-x: scroll !important;
+            overflow-y: hidden !important;
+            padding: 0 0.75rem 1rem 0;
+            margin: 0 0 1.5rem;
+            scroll-snap-type: x proximity;
+            -webkit-overflow-scrolling: touch;
+
+            .filter-item {
+              flex: 0 0 auto !important;
+              width: auto !important;
+              min-width: max-content;
+              white-space: nowrap;
+              transform: none !important;
+              scroll-snap-align: start;
+
+              &:hover,
+              &.active {
+                transform: none !important;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .service-description {
+    .container {
+      .description-wrapper {
+        .benefits-grid {
+          .benefit-card {
+            flex-basis: 84%;
+          }
+        }
+      }
+    }
+  }
+
+  .services-content {
+    .container {
+      .services-layout {
+        .services-main {
+          .service-category {
+            .services-cards {
+              .service-card {
+                flex-basis: 90%;
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }

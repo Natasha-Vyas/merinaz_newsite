@@ -2,6 +2,10 @@
   position: relative;
   overflow: hidden;
   padding: 5rem 10rem;
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+  }
 }
 
 
@@ -12,6 +16,8 @@
   align-items: center;
 
   @media (max-width: 968px) {
+    display: grid;
+    grid-template-columns: none;
     grid-template-columns: 1fr;
     gap: 2rem;
   }
@@ -52,7 +58,14 @@
   }
 
   @media (max-width: 968px) {
-    height: 400px;
+    width: 86%;
+    height: 380px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 480px) {
+    width: 88%;
+    height: 340px;
   }
 
   img {
@@ -65,6 +78,10 @@
 
 .about-text {
   max-width: 600px;
+
+  @media (max-width: 968px) {
+    max-width: 600px;
+  }
 }
 
 .section-title {
