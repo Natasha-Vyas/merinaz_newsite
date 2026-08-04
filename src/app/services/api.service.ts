@@ -8,8 +8,8 @@ import { environment } from '../../environments/environment';
 })
 export class ApiService {
 
-  private apiUrl = 'YOUR_API_ENDPOINT_HERE'; // Replace with your actual API endpoint
-  private formCode = environment.formsparkFormCode;
+  private apiUrl = 'https://submit-form.com';
+  private formCode = 'dzbC6LtIC';
 
   constructor(private http: HttpClient) { }
 
@@ -42,10 +42,14 @@ export class ApiService {
   }
 
   submitNewsletterForm(email: string): Observable<any> {
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json'
-    });
+    const requestBody = {
+      email: email,
+      type: 'Newsletter Subscription'
+    };
 
-    return this.http.post(`${this.apiUrl}/newsletter`, { email }, { headers });
+    return this.http.post(
+      `https://submit-form.com/${this.formCode}`,
+      requestBody
+    );
   }
 }

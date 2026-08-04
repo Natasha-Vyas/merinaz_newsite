@@ -112,7 +112,20 @@
                 </div>
 
                 <div class="book-section">
-                  <button class="book-btn" (click)="toggleLocationDropdown(service.name + '-' + i, $event)">
+                  <!-- Permanent Makeup - Route to Contact Page -->
+                  <button *ngIf="isPermanentMakeup(service.name)"
+                          class="book-btn"
+                          routerLink="/contact-us">
+                    Book Now
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                      <path d="M5 8h6M8 5l3 3-3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+
+                  <!-- Other Services - Show Calendly Dropdown -->
+                  <button *ngIf="!isPermanentMakeup(service.name)"
+                          class="book-btn"
+                          (click)="toggleLocationDropdown(service.name + '-' + i, $event)">
                     Book Now
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                       <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -120,7 +133,7 @@
                     </svg>
                   </button>
 
-                  <div class="location-dropdown" *ngIf="showLocationDropdown[service.name + '-' + i]" @slideDown>
+                  <div class="location-dropdown" *ngIf="!isPermanentMakeup(service.name) && showLocationDropdown[service.name + '-' + i]" @slideDown>
                     <div class="dropdown-header">Choose Location:</div>
                     <button class="location-option" *ngFor="let location of calendlyLinks"
                       (click)="bookService(location.link)">

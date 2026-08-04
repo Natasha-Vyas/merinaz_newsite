@@ -224,6 +224,10 @@ export class ServicesPageComponent implements OnInit {
     window.open(calendlyLink, '_blank');
   }
 
+  isPermanentMakeup(categoryName: string): boolean {
+    return categoryName.toLowerCase().includes('permanent makeup');
+  }
+
   @HostListener('document:click', ['$event'])
   onDocumentClick(event: Event): void {
     // This will close dropdowns when clicking outside
