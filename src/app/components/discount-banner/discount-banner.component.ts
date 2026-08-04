@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { DataService } from '../../services/data.service';
 
 @Component({
@@ -10,7 +10,9 @@ export class DiscountBannerComponent implements OnInit {
 
   bannerData: any = {};
   galleryImages: any[] = [];
-  bannerImage: string = 'https://s3.ap-south-1.amazonaws.com/cdn.ghc.health/3769eb58-5c23-4250-8b2e-a50866c5cff1_4.jpg';
+  bannerImage: string = "https://s3.ap-south-1.amazonaws.com/cdn.ghc.health/a55a63ac-0025-44f0-b6fd-da171c74e56b_image1.png";
+  calendlyLinks: any[] = [];
+  showBookDropdown: boolean = false;
 
   constructor(private dataService: DataService) { }
 
@@ -18,6 +20,7 @@ export class DiscountBannerComponent implements OnInit {
     this.dataService.getMerinazData().subscribe((data: any) => {
       if (data) {
         this.bannerData = data;
+        this.calendlyLinks = data.hero?.calendlyLinks || [];
         if (data.gallery && data.gallery.length > 10) {
           this.bannerImage = data.gallery[10];
         } else if (data.gallery && data.gallery.length > 0) {
@@ -31,6 +34,24 @@ export class DiscountBannerComponent implements OnInit {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  toggleBookDropdown(event?: Event): void {
+    event?.stopPropagation();
+    this.showBookDropdown = !this.showBookDropdown;
+  }
+
+  bookLocation(calendlyLink: string): void {
+    window.open(calendlyLink, '_blank');
+    this.showBookDropdown = false;
+  }
+
+  @HostListener('document:click', ['$event'])
+  closeBookDropdownOnOutsideClick(event: Event): void {
+    const target = event.target as HTMLElement;
+    if (!target.closest('.book-dropdown')) {
+      this.showBookDropdown = false;
     }
   }
 

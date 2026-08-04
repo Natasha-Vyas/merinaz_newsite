@@ -2,7 +2,34 @@
   <div class="container">
     <div class="about-content">
       <div class="about-image">
-        <img src="https://s3.ap-south-1.amazonaws.com/cdn.ghc.health/3769eb58-5c23-4250-8b2e-a50866c5cff1_4.jpg" alt="Who We Are">
+        <div class="image-slider">
+          <div class="slider-images">
+            <img *ngFor="let image of aboutImages; let i = index"
+                 [src]="image"
+                 [class.active]="i === currentImageIndex"
+                 alt="Merinaz Salon">
+          </div>
+
+          <button class="slider-btn prev" (click)="prevImage()" [attr.aria-label]="'Previous Image'">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+
+          <button class="slider-btn next" (click)="nextImage()" [attr.aria-label]="'Next Image'">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+
+          <div class="slider-dots">
+            <button *ngFor="let image of aboutImages; let i = index"
+                    [class.active]="i === currentImageIndex"
+                    (click)="goToImage(i)"
+                    [attr.aria-label]="'Go to image ' + (i + 1)">
+            </button>
+          </div>
+        </div>
       </div>
 
       <div class="about-text">

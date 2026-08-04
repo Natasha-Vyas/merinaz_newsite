@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { DataService } from '../../services/data.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { DataService } from '../../services/data.service';
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.scss']
 })
-export class AboutPageComponent implements OnInit {
+export class AboutPageComponent implements OnInit, OnDestroy {
 
   data: any = {};
   brandName: string = '';
@@ -14,7 +14,14 @@ export class AboutPageComponent implements OnInit {
   about: string[] = [];
   gallery: string[] = [];
   testimonials: any[] = [];
-  mainImage: string = '';
+  aboutImages: string[] = [
+    'https://s3.ap-south-1.amazonaws.com/cdn.ghc.health/d2e140ef-593c-4deb-bc44-eecd3c306dcc_image3.png',
+    'https://s3.ap-south-1.amazonaws.com/cdn.ghc.health/574ceb5d-5a00-48fc-a9ae-bfaa150981bc_image2.png',
+    'https://s3.ap-south-1.amazonaws.com/cdn.ghc.health/409b106d-d683-4e34-8f30-82ee807d320f_image5.png',
+    'https://s3.ap-south-1.amazonaws.com/cdn.ghc.health/9eb7548c-d729-4f92-b0cf-d66df0de9f71_image4.png'
+  ];
+  currentImageIndex: number = 0;
+  sliderInterval: any;
 
   constructor(private dataService: DataService) { }
 
@@ -26,9 +33,40 @@ export class AboutPageComponent implements OnInit {
       this.about = data.hero?.about || [];
       this.gallery = data.gallery || [];
       this.testimonials = data.testimonials || [];
-      // Use placeholder if no image available
-      this.mainImage = this.gallery[0] || 'https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&q=80';
     });
+
+    // Start automatic slider
+    this.startSlider();
+  }
+
+  ngOnDestroy(): void {
+    this.stopSlider();
+  }
+
+  startSlider(): void {
+    this.sliderInterval = setInterval(() => {
+      this.nextImage();
+    }, 4000);
+  }
+
+  stopSlider(): void {
+    if (this.sliderInterval) {
+      clearInterval(this.sliderInterval);
+    }
+  }
+
+  nextImage(): void {
+    this.currentImageIndex = (this.currentImageIndex + 1) % this.aboutImages.length;
+  }
+
+  prevImage(): void {
+    this.currentImageIndex = (this.currentImageIndex - 1 + this.aboutImages.length) % this.aboutImages.length;
+  }
+
+  goToImage(index: number): void {
+    this.currentImageIndex = index;
+    this.stopSlider();
+    this.startSlider();
   }
 
   getReviewerAvatar(index: number): string {

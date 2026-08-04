@@ -3,7 +3,8 @@
   <div class="container">
     <a routerLink="/home" fragment="locations" class="back-link">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-        <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round" />
       </svg>
       Back to All Locations
     </a>
@@ -22,19 +23,16 @@
       <!-- Left: Map -->
       <div class="map-section">
         <div class="map-wrapper">
-          <iframe
-            [src]="mapUrl | sanitizeUrl"
-            class="location-map"
-            allowfullscreen=""
-            loading="lazy"
+          <iframe [src]="mapUrl | sanitizeUrl" class="location-map" allowfullscreen="" loading="lazy"
             referrerpolicy="no-referrer-when-downgrade">
           </iframe>
         </div>
 
         <a [href]="getDirectionsUrl()" target="_blank" class="directions-btn">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="currentColor" stroke-width="2"/>
-            <circle cx="12" cy="9" r="2" stroke="currentColor" stroke-width="2"/>
+            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="currentColor"
+              stroke-width="2" />
+            <circle cx="12" cy="9" r="2" stroke="currentColor" stroke-width="2" />
           </svg>
           Get Directions
         </a>
@@ -45,8 +43,9 @@
         <div class="info-card">
           <div class="info-icon">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="#95785A" stroke-width="2"/>
-              <circle cx="12" cy="9" r="2" stroke="#95785A" stroke-width="2"/>
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="#95785A"
+                stroke-width="2" />
+              <circle cx="12" cy="9" r="2" stroke="#95785A" stroke-width="2" />
             </svg>
           </div>
           <div class="info-content">
@@ -58,7 +57,9 @@
         <div class="info-card">
           <div class="info-icon">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-              <path d="M3 5C3 3.89543 3.89543 3 5 3H7.27924C7.70967 3 8.09181 3.27543 8.22792 3.68377L9.72574 8.17721C9.88311 8.64932 9.6939 9.16531 9.26407 9.3991L7.84843 10.1067C8.42935 11.7111 9.2889 12.5706 10.8933 13.1516L11.6009 11.7359C11.8347 11.3061 12.3507 11.1169 12.8228 11.2743L17.3162 12.7721C17.7246 12.9082 18 13.2903 18 13.7208V16C18 17.1046 17.1046 18 16 18H15C8.37258 18 3 12.6274 3 6V5Z" stroke="#95785A" stroke-width="2"/>
+              <path
+                d="M3 5C3 3.89543 3.89543 3 5 3H7.27924C7.70967 3 8.09181 3.27543 8.22792 3.68377L9.72574 8.17721C9.88311 8.64932 9.6939 9.16531 9.26407 9.3991L7.84843 10.1067C8.42935 11.7111 9.2889 12.5706 10.8933 13.1516L11.6009 11.7359C11.8347 11.3061 12.3507 11.1169 12.8228 11.2743L17.3162 12.7721C17.7246 12.9082 18 13.2903 18 13.7208V16C18 17.1046 17.1046 18 16 18H15C8.37258 18 3 12.6274 3 6V5Z"
+                stroke="#95785A" stroke-width="2" />
             </svg>
           </div>
           <div class="info-content">
@@ -72,27 +73,29 @@
         <div class="info-card">
           <div class="info-icon">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-              <circle cx="12" cy="12" r="10" stroke="#95785A" stroke-width="2"/>
-              <path d="M12 6v6l4 2" stroke="#95785A" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="12" cy="12" r="10" stroke="#95785A" stroke-width="2" />
+              <path d="M12 6v6l4 2" stroke="#95785A" stroke-width="2" stroke-linecap="round" />
             </svg>
           </div>
           <div class="info-content">
             <h3 class="info-title">Hours</h3>
-            <p class="info-text">Monday - Sunday<br>9:00 AM - 8:00 PM</p>
+            <p class="info-text">Mon - Sat: 10:00 AM – 8:00 PM<br>Sun: 10:00 AM – 7:00 PM</p>
           </div>
         </div>
 
         <div class="action-buttons">
           <a [href]="locationData.link" target="_blank" class="action-btn primary">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-              <rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/>
-              <path d="M16 2v4M8 2v4M3 10h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2" />
+              <path d="M16 2v4M8 2v4M3 10h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
             </svg>
-            Book Appointment Now
+            Book Appointment
           </a>
           <a href="tel:2024692869" class="action-btn secondary">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-              <path d="M3 5C3 3.89543 3.89543 3 5 3H7.27924C7.70967 3 8.09181 3.27543 8.22792 3.68377L9.72574 8.17721C9.88311 8.64932 9.6939 9.16531 9.26407 9.3991L7.84843 10.1067C8.42935 11.7111 9.2889 12.5706 10.8933 13.1516L11.6009 11.7359C11.8347 11.3061 12.3507 11.1169 12.8228 11.2743L17.3162 12.7721C17.7246 12.9082 18 13.2903 18 13.7208V16C18 17.1046 17.1046 18 16 18H15C8.37258 18 3 12.6274 3 6V5Z" stroke="currentColor" stroke-width="2"/>
+              <path
+                d="M3 5C3 3.89543 3.89543 3 5 3H7.27924C7.70967 3 8.09181 3.27543 8.22792 3.68377L9.72574 8.17721C9.88311 8.64932 9.6939 9.16531 9.26407 9.3991L7.84843 10.1067C8.42935 11.7111 9.2889 12.5706 10.8933 13.1516L11.6009 11.7359C11.8347 11.3061 12.3507 11.1169 12.8228 11.2743L17.3162 12.7721C17.7246 12.9082 18 13.2903 18 13.7208V16C18 17.1046 17.1046 18 16 18H15C8.37258 18 3 12.6274 3 6V5Z"
+                stroke="currentColor" stroke-width="2" />
             </svg>
             Call Us
           </a>
@@ -108,12 +111,13 @@
   <div class="container">
     <h2 class="cta-title">Services Available at This Location</h2>
     <p class="cta-text">
-      All our premium services including waxing, sugaring, threading, facials, and eyelash treatments are available at this location.
+      All our premium services including waxing, sugaring, threading, facials, and eyelash treatments are available at
+      this location.
     </p>
     <button routerLink="/services" class="cta-button">
       View All Services
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-        <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
       </svg>
     </button>
   </div>

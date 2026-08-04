@@ -12,7 +12,35 @@
   <div class="story-content">
     <div class="story-image-wrapper">
       <div class="story-image">
-        <img [src]="mainImage" [alt]="brandName + ' clinic'">
+        <div class="image-slider">
+          <div class="slider-images">
+            <img *ngFor="let image of aboutImages; let i = index"
+                 [src]="image"
+                 [class.active]="i === currentImageIndex"
+                 [alt]="brandName + ' salon'">
+          </div>
+
+          <button class="slider-btn prev" (click)="prevImage()" [attr.aria-label]="'Previous Image'">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+
+          <button class="slider-btn next" (click)="nextImage()" [attr.aria-label]="'Next Image'">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+
+          <div class="slider-dots">
+            <button *ngFor="let image of aboutImages; let i = index"
+                    [class.active]="i === currentImageIndex"
+                    (click)="goToImage(i)"
+                    [attr.aria-label]="'Go to image ' + (i + 1)">
+            </button>
+          </div>
+        </div>
+
         <div class="image-overlay">
           <div class="overlay-badge">
             <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
@@ -224,7 +252,7 @@
       Book your appointment today and discover why thousands of clients trust {{ brandName }} for their beauty needs
     </p>
     <button class="cta-button" routerLink="/contact-us">
-      Book Appointment Now
+      Book Appointment
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
         <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
