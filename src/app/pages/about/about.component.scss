@@ -172,20 +172,136 @@
           box-shadow: 0 35px 90px rgba(149, 120, 90, 0.35);
           border-radius: 200px 30px 200px 30px;
 
-          img {
-            transform: scale(1.1);
+          .image-overlay {
+            opacity: 1;
           }
 
-          .image-overlay {
+          .slider-btn {
             opacity: 1;
           }
         }
 
-        img {
+        .image-slider {
           width: 100%;
           height: 100%;
-          object-fit: cover;
-          transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+          position: relative;
+
+          .slider-images {
+            width: 100%;
+            height: 100%;
+            position: relative;
+
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              position: absolute;
+              top: 0;
+              left: 0;
+              opacity: 0;
+              transition: opacity 0.8s ease-in-out;
+
+              &.active {
+                opacity: 1;
+                z-index: 1;
+              }
+            }
+          }
+
+          .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            opacity: 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+
+            &:hover {
+              background: #95785A;
+              transform: translateY(-50%) scale(1.1);
+
+              svg {
+                stroke: #fff;
+              }
+            }
+
+            svg {
+              stroke: #95785A;
+              transition: stroke 0.3s ease;
+            }
+
+            &.prev {
+              left: 20px;
+            }
+
+            &.next {
+              right: 20px;
+            }
+
+            @media (max-width: 768px) {
+              width: 40px;
+              height: 40px;
+              opacity: 1;
+
+              &.prev {
+                left: 10px;
+              }
+
+              &.next {
+                right: 10px;
+              }
+            }
+          }
+
+          .slider-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+
+            button {
+              width: 12px;
+              height: 12px;
+              border-radius: 50%;
+              border: 2px solid #fff;
+              background: transparent;
+              cursor: pointer;
+              transition: all 0.3s ease;
+              box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+
+              &:hover {
+                background: rgba(255, 255, 255, 0.5);
+                transform: scale(1.2);
+              }
+
+              &.active {
+                background: #95785A;
+                border-color: #95785A;
+              }
+            }
+
+            @media (max-width: 768px) {
+              bottom: 15px;
+
+              button {
+                width: 10px;
+                height: 10px;
+              }
+            }
+          }
         }
 
         .image-overlay {

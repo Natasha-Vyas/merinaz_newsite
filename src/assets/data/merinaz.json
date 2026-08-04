@@ -355,27 +355,35 @@
             {
                 "name": "Facial",
                 "sub_services": [
-                    "Basic Facial",
                     "Hydra Facial",
-                    "Carbon CO2 Therapy",
                     "Microdermabrasion",
-                    "Natural Deep Cleansing Facial",
-                    "Detox Facial",
-                    "Diamond Lifting Facial",
-                    "24k Gold Luxury Facial"
+                    "Basic Facial"
                 ]
             },
             {
                 "name": "Eyelash",
                 "sub_services": [
                     "Lash Lifting",
-                    "Lash Lifting w/tinting",
+                    "Lash Lifting and Tinting",
                     "Lash Tinting",
                     "Natural Lashes Extension",
                     "Classic Lashes Extension",
                     "Hybrid Lashes Extension",
                     "Volume Lashes Extension",
                     "Lash Removal"
+                ]
+            },
+            {
+                "name": "Permanent Makeup",
+                "sub_services": [
+                    "Nano Brows (Hair Stroke)",
+                    "Combo Brows",
+                    "Powder Ombre Brows",
+                    "Corrective Eyebrows",
+                    "Freckles Tattoo",
+                    "Eyeliner",
+                    "Lip Blush",
+                    "Dark Lip Neutralization"
                 ]
             }
         ],
@@ -5779,6 +5787,211 @@
                                             ]
                                         }
                                     ]
+                                },
+                                {
+                                    "categoryName": "Permanent Makeup",
+                                    "routeName": "Permanent Makeup",
+                                    "categoryNote": "Permanent makeup services for lasting definition, including brows, eyeliner, freckles, and lip color treatments.",
+                                    "side": "left",
+                                    "items": [
+                                        {
+                                            "subCategoryHeader": "Permanent Makeup",
+                                            "items": [
+                                                {
+                                                    "itemName": "Nano Brows (Hair Stroke)",
+                                                    "itemDescription": "Includes one free touch-up within 2 months.",
+                                                    "itemPrice": 750,
+                                                    "itemPrice2": 750,
+                                                    "itemPrice3": 750,
+                                                    "heading": "Standard",
+                                                    "heading2": "",
+                                                    "heading3": "",
+                                                    "quantity": 1,
+                                                    "customization": [
+                                                        {
+                                                            "custName": "Select Option",
+                                                            "custDescription": "Choose your option",
+                                                            "required": "true",
+                                                            "cust": [
+                                                                {
+                                                                    "name": "Standard",
+                                                                    "price": 750
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "itemName": "Combo Brows",
+                                                    "itemDescription": "Touch-up available within 2 months.",
+                                                    "itemPrice": 700,
+                                                    "itemPrice2": 700,
+                                                    "itemPrice3": 700,
+                                                    "heading": "Standard",
+                                                    "heading2": "",
+                                                    "heading3": "",
+                                                    "quantity": 1,
+                                                    "customization": [
+                                                        {
+                                                            "custName": "Select Option",
+                                                            "custDescription": "Choose your option",
+                                                            "required": "true",
+                                                            "cust": [
+                                                                {
+                                                                    "name": "Standard",
+                                                                    "price": 700
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "itemName": "Powder Ombre Brows",
+                                                    "itemDescription": "Includes free touch-up.",
+                                                    "itemPrice": 550,
+                                                    "itemPrice2": 550,
+                                                    "itemPrice3": 550,
+                                                    "heading": "Standard",
+                                                    "heading2": "",
+                                                    "heading3": "",
+                                                    "quantity": 1,
+                                                    "customization": [
+                                                        {
+                                                            "custName": "Select Option",
+                                                            "custDescription": "Choose your option",
+                                                            "required": "true",
+                                                            "cust": [
+                                                                {
+                                                                    "name": "Standard",
+                                                                    "price": 550
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "itemName": "Corrective Eyebrows",
+                                                    "itemDescription": "Includes free touch-up.",
+                                                    "itemPrice": 800,
+                                                    "itemPrice2": 800,
+                                                    "itemPrice3": 800,
+                                                    "heading": "Standard",
+                                                    "heading2": "",
+                                                    "heading3": "",
+                                                    "quantity": 1,
+                                                    "customization": [
+                                                        {
+                                                            "custName": "Select Option",
+                                                            "custDescription": "Choose your option",
+                                                            "required": "true",
+                                                            "cust": [
+                                                                {
+                                                                    "name": "Standard",
+                                                                    "price": 800
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "itemName": "Freckles Tattoo",
+                                                    "itemDescription": "Permanent freckles tattoo service.",
+                                                    "itemPrice": 450,
+                                                    "itemPrice2": 450,
+                                                    "itemPrice3": 450,
+                                                    "heading": "Standard",
+                                                    "heading2": "",
+                                                    "heading3": "",
+                                                    "quantity": 1,
+                                                    "customization": [
+                                                        {
+                                                            "custName": "Select Option",
+                                                            "custDescription": "Choose your option",
+                                                            "required": "true",
+                                                            "cust": [
+                                                                {
+                                                                    "name": "Standard",
+                                                                    "price": 450
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "itemName": "Eyeliner",
+                                                    "itemDescription": "Permanent eyeliner service.",
+                                                    "itemPrice": 400,
+                                                    "itemPrice2": 400,
+                                                    "itemPrice3": 400,
+                                                    "heading": "Standard",
+                                                    "heading2": "",
+                                                    "heading3": "",
+                                                    "quantity": 1,
+                                                    "customization": [
+                                                        {
+                                                            "custName": "Select Option",
+                                                            "custDescription": "Choose your option",
+                                                            "required": "true",
+                                                            "cust": [
+                                                                {
+                                                                    "name": "Standard",
+                                                                    "price": 400
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "itemName": "Lip Blush",
+                                                    "itemDescription": "Includes free touch-up.",
+                                                    "itemPrice": 500,
+                                                    "itemPrice2": 500,
+                                                    "itemPrice3": 500,
+                                                    "heading": "Standard",
+                                                    "heading2": "",
+                                                    "heading3": "",
+                                                    "quantity": 1,
+                                                    "customization": [
+                                                        {
+                                                            "custName": "Select Option",
+                                                            "custDescription": "Choose your option",
+                                                            "required": "true",
+                                                            "cust": [
+                                                                {
+                                                                    "name": "Standard",
+                                                                    "price": 500
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "itemName": "Dark Lip Neutralization",
+                                                    "itemDescription": "Includes free touch-up.",
+                                                    "itemPrice": 650,
+                                                    "itemPrice2": 650,
+                                                    "itemPrice3": 650,
+                                                    "heading": "Standard",
+                                                    "heading2": "",
+                                                    "heading3": "",
+                                                    "quantity": 1,
+                                                    "customization": [
+                                                        {
+                                                            "custName": "Select Option",
+                                                            "custDescription": "Choose your option",
+                                                            "required": "true",
+                                                            "cust": [
+                                                                {
+                                                                    "name": "Standard",
+                                                                    "price": 650
+                                                                }
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
                                 }
                             ]
                         }
@@ -5793,5 +6006,9 @@
             "Mon - Sat: 10:00 AM – 8:00 PM",
             "Sun: 10:00 AM – 7:00 PM"
         ]
+    },
+    "storeHours": {
+        "weekdays": "Mon - Sat: 10:00 AM – 8:00 PM",
+        "sunday": "Sun: 10:00 AM – 7:00 PM"
     }
 }

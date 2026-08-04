@@ -61,6 +61,16 @@
             </svg>
             {{ email }}
           </li>
+          <li *ngIf="storeHours.weekdays">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <circle cx="10" cy="10" r="8.33" stroke="#95785A" stroke-width="1.5"/>
+              <path d="M10 5v5l3.33 1.67" stroke="#95785A" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+            {{ storeHours.weekdays }}
+          </li>
+          <li *ngIf="storeHours.sunday" style="padding-left: 40px;">
+            {{ storeHours.sunday }}
+          </li>
         </ul>
       </div>
 

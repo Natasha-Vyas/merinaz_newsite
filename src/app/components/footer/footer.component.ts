@@ -15,6 +15,7 @@ export class FooterComponent implements OnInit {
   contact: string = '';
   email: string = '';
   social: any = {};
+  storeHours: any = {};
   newsletterEmail: string = '';
   newsletterSuccess: boolean = false;
   newsletterError: boolean = false;
@@ -32,6 +33,7 @@ export class FooterComponent implements OnInit {
       this.contact = data.contact;
       this.email = data.email;
       this.social = data.social;
+      this.storeHours = data.storeHours || {};
     });
   }
 
